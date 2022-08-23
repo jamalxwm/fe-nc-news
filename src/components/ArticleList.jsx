@@ -13,16 +13,18 @@ import {
 } from '@material-ui/core';
 import { Typography } from '@mui/material';
 import useStyles from '../styles';
+import { useParams } from 'react-router';
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
+  const {slug} = useParams();
   const classes = useStyles();
 
   useEffect(() => {
-    fetchArticles().then((articleItems) => {
+    fetchArticles(slug).then((articleItems) => {
       setArticles(articleItems);
     });
-  }, []);
+  }, [slug]);
 
   return (
     <>
