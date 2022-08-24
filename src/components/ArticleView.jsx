@@ -11,7 +11,6 @@ export default function ArticleView() {
     fetchArticleByID(article_id).then((article) => setArticle(article));
   }, [article_id]);
 
-  console.log(article);
   return (
     <div>
       <Typography variant='h2'>{article[0].title}</Typography>
