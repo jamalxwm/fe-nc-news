@@ -1,7 +1,7 @@
 
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchTopics } from './data-fetching';
+import { fetchTopics } from '../data-fetching';
 
 
 export default function NavBar() {

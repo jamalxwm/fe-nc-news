@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchArticles } from './data-fetching';
+import { fetchArticles } from '../data-fetching';
 import { ThumbDown, ThumbUp } from '@mui/icons-material';
 import {
   Button,
