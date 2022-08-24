@@ -13,9 +13,10 @@ export default function NavBar() {
 
   return <>
   <nav>
+    <Link to='/'>Home | </Link>
     {topicList.map((topic) => {
         return (
-            <Link key={topic.slug} to={`topic/${topic.slug}`}>{topic.slug}</Link>
+            <Link key={topic.slug} to={`topic/${topic.slug}`}>{topic.slug} | </Link>
         )
     })}
   </nav>
