@@ -12,3 +12,8 @@ export const fetchTopics = () => {
   const query = `https://be-nc-news-jwm.herokuapp.com/api/topics`;
   return axios.get(query).then((res) => res.data.topics);
 };
+
+export const fetchArticleByID = (id) => {
+  const query = `https://be-nc-news-jwm.herokuapp.com/api/articles/${id}`;
+  return axios.get(query).then((res) => res.data.article);
+};
