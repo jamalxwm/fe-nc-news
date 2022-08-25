@@ -20,5 +20,12 @@ export const fetchArticleByID = (id) => {
 
 export const patchVotes = (id, incOrDec) => {
   const query = `https://be-nc-news-jwm.herokuapp.com/api/articles/${id}`;
-  return axios.patch(query, { inc_votes: incOrDec }).then((res) => res.data.article);
+  return axios
+    .patch(query, { inc_votes: incOrDec })
+    .then((res) => res.data.article);
+};
+
+export const fetchCommentsByArticle = (id) => {
+  const query = `https://be-nc-news-jwm.herokuapp.com/api/articles/${id}/comments`;
+  return axios.get(query).then((res) => res.data.comments);
 };

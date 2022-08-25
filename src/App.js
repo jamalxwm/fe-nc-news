@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ArticleView from './components/ArticleView';
+import CommentList from './components/CommentList';
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
         <Route path="/" element={<ArticleList />} />
         <Route path="/topic/:slug" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<ArticleView />} />
+        <Route
+          path="/articles/:article_id/comments"
+          element={<CommentList />}
+        />
       </Routes>
     </div>
   );
