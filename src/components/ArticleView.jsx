@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import { Typography } from '@mui/material';
 import { IconButton } from '@material-ui/core';
 import { ThumbUp } from '@mui/icons-material';
+import CommentList from './CommentList';
 
 export default function ArticleView() {
   const { article_id } = useParams();
   const [article, setArticle] = useState({});
   const [votes, setVotes] = useState(0);
-  const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
     fetchArticleByID(article_id).then((article) => {
@@ -19,17 +19,16 @@ export default function ArticleView() {
 
   const incrementVotes = () => {
     let incOrDec = 1;
-    if (hasVoted) incOrDec = -1;
+    if (votes === 1) incOrDec = -1;
 
     setVotes((currVotes) => {
       return currVotes + incOrDec;
     });
     patchVotes(article.article_id, incOrDec).catch(() => {
       setVotes((currVotes) => {
-        return currVotes + incOrDec;
+        return currVotes - incOrDec;
       });
     });
-    setHasVoted((curr) => !curr);
   };
 
   return (
@@ -43,6 +42,7 @@ export default function ArticleView() {
       <Typography variant="h6">Votes: {article.votes + votes}</Typography>
       <Typography variant="body1">{article.body}</Typography>
       <Typography variant="h6">Comments: {article.comment_count}</Typography>
+      <CommentList />
     </div>
   );
 }
