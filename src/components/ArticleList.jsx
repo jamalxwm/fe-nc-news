@@ -11,20 +11,24 @@ import {
 import { Typography } from '@mui/material';
 import useStyles from '../styles';
 import { useParams, Link } from 'react-router-dom';
+import NavBar from './NavBar';
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
+  const [orderBy, setOrderBy] = useState('DESC');
+  const [sortBy, setSortBy] = useState('created_at');
   const { slug } = useParams();
   const classes = useStyles();
 
   useEffect(() => {
-    fetchArticles(slug).then((articleItems) => {
+    fetchArticles(sortBy, orderBy, slug).then((articleItems) => {
       setArticles(articleItems);
     });
-  }, [slug]);
+  }, [sortBy, orderBy, slug]);
 
   return (
     <>
+      <NavBar setOrderBy={setOrderBy} setSortBy={setSortBy} />
       <CssBaseline />
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
