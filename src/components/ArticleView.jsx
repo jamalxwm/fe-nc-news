@@ -5,6 +5,7 @@ import { Typography } from '@mui/material';
 import { IconButton } from '@material-ui/core';
 import { ThumbUp } from '@mui/icons-material';
 import CommentList from './CommentList';
+import CommentInput from './CommentInput';
 
 export default function ArticleView() {
   const { article_id } = useParams();

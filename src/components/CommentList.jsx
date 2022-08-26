@@ -8,6 +8,8 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import dayjs from 'dayjs';
+import CommentInput from './CommentInput';
 
 export default function CommentList() {
   const { article_id } = useParams();
@@ -15,16 +17,20 @@ export default function CommentList() {
 
   useEffect(() => {
     fetchCommentsByArticle(article_id).then((comments) => {
-      console.log(comments);
       setComments(comments);
     });
   }, [article_id]);
 
   return (
     <>
+      <CommentInput
+        article_id={article_id}
+        setComments={setComments}
+        comments={comments}
+      />
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {comments.map((comment) => (
-          <ListItem alignItems="flex-start">
+          <ListItem alignItems="flex-start" key={comment.comment_id}>
             <ListItemAvatar>
               <Avatar
                 alt={comment.author}
@@ -33,7 +39,19 @@ export default function CommentList() {
             </ListItemAvatar>
             <ListItemText
               primary={comment.author}
-              secondary={<>{comment.body}</>}
+              secondary={
+                <>
+                  {comment.body}{' '}
+                  <Typography
+                    sx={{ display: 'inline' }}
+                    component="span"
+                    variant="body2"
+                    color="text.primary"
+                  >
+                    {dayjs(comment.created_at).format('D-MMM-YY')}
+                  </Typography>
+                </>
+              }
             />
             <Divider variant="inset" component="li" />
           </ListItem>
