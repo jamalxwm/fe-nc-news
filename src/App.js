@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Typography variant="h1">Hello world!</Typography>
-      <NavBar />
 
       <Routes>
         <Route path="/" element={<ArticleList />} />

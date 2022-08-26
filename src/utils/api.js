@@ -1,11 +1,15 @@
+
 const axios = require('axios');
 
-export const fetchArticles = (slug) => {
+export const fetchArticles = (sort_by, order, slug) => {
   const topicQuery = slug ? `?topic=${slug}` : ``;
   const query = `https://be-nc-news-jwm.herokuapp.com/api/articles${topicQuery}`;
-  return axios.get(query).then((res) => {
-    return res.data.articles;
-  });
+  return axios
+    .get(query, { params: { sort_by, order }} )
+    .then((res) => {
+      console.log()
+      return res.data.articles;
+    });
 };
 
 export const fetchTopics = () => {
