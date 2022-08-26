@@ -47,7 +47,7 @@ export default function NavBar({ setSortBy, setOrderBy }) {
             <Select
               labelId="Order select"
               id="Order"
-              defaultValue="created_at"
+              defaultValue="DESC"
               label="Order by"
               onChange={handleOrderChange}
             >
