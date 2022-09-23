@@ -1,17 +1,21 @@
 import './App.css';
 import ArticleList from './components/ArticleList';
-import { Typography } from '@material-ui/core';
+
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ArticleView from './components/ArticleView';
 import CommentList from './components/CommentList';
+import Nav from './components/Nav';
+import './index.css';
+import ArticleGrid from './components/ArticleGrid';
 
 function App() {
   return (
     <div className="App">
-      <Typography variant="h1">Hello world!</Typography>
+      <Nav />
+      <ArticleGrid />
 
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<ArticleList />} />
         <Route path="/topic/:slug" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<ArticleView />} />
@@ -19,7 +23,7 @@ function App() {
           path="/articles/:article_id/comments"
           element={<CommentList />}
         />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
