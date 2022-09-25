@@ -10,7 +10,22 @@ body {
   line-height: 1em;
   font-weight: 400;
   box-sizing: border-box;
-  color: rgb(7, 13, 34);
+  color: #070d22;
+}
+
+h1 {
+  margin: 0.2em 0;
+  font-size: 3em;
+  line-height: 1.3em;
+  font-weight: 700;
+  letter-spacing: -.0125em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.6em;
+  letter-spacing: .0125em;
 }
 
 @media screen and (max-width: 991px) {

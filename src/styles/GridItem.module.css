@@ -105,6 +105,24 @@ img {
     font-size: .9em;
 }
 
+.articleDate {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 1em;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.articleVotes {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+}
+
 p {
     display: block;
     margin-block-start: 1em;
@@ -123,13 +141,14 @@ p {
     
 }
 
-.paragraphDate {
+.paragraph__extraSmall {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     font-size: 1em;
     font-weight: 400;
     color: #191c1f;
     text-decoration: none;
+    line-height: 1.3em;
 }
 
 .postTitle {
@@ -139,12 +158,40 @@ p {
     margin-bottom: 0.5em;
     font-size: 1.4em;
     line-height: 1.3em;
+    color: #191c1f;
     font-weight: 500;
     letter-spacing: -.0125em;
     max-width: 100%;
     text-decoration: none;
 }
 
+.articleAuthor {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 1em;
+        margin-right: 1em;
+        margin-bottom: 1em;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+}
+
+.authorImage {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.4em;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    font-size: 2.2em;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
 
 @media screen and (max-width: 991px) {
     .articlelink {
@@ -194,5 +241,11 @@ p {
     }
     .coverImage {
         max-width: 76vw;
+    }
+    .authorImage {
+        font-size: 2.5em;
+    }
+    .paragraph__extraSmall {
+        font-size: 1em;
     }
 }

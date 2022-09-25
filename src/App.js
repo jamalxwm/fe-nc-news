@@ -13,17 +13,16 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <ArticleGrid />
 
-      {/* <Routes>
-        <Route path="/" element={<ArticleList />} />
+      <Routes>
+        <Route path="/" element={<ArticleGrid />} />
         <Route path="/topic/:slug" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<ArticleView />} />
         <Route
           path="/articles/:article_id/comments"
           element={<CommentList />}
         />
-      </Routes> */}
+      </Routes>
     </div>
   );
 }
