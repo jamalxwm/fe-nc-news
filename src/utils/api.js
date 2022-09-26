@@ -33,7 +33,9 @@ export const fetchCommentsByArticle = (id) => {
 
 export const postCommentByArticle = (id, username, body) => {
   const query = `https://be-nc-news-jwm.herokuapp.com/api/articles/${id}/comments`;
-  return axios.post(query, { username, body }).then((res) => res.data.comments);
+  return axios
+    .post(query, { username, body })
+    .then((res) => res.data.comments)
 };
 
 export const fetchUsers = () => {

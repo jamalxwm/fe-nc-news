@@ -8,7 +8,7 @@ import './index.css';
 import ArticleGrid from './components/Views/ArticleGrid';
 import { useState } from 'react';
 import { UserContext } from './contexts/user';
-import Page404 from './components/Views/404';
+import Page404 from './components/Views/Page404';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState('happyamy2016');
@@ -16,9 +16,8 @@ function App() {
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
       <div className="App">
-        <Nav />
-
         <Routes>
+          
           <Route path="/" element={<ArticleGrid />} />
           <Route path="/topic/:slug" element={<ArticleList />} />
           <Route path="/articles/:article_id" element={<ArticleView />} />

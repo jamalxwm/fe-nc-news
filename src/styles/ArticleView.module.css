@@ -294,6 +294,27 @@
     margin-left: 1em;
 }
 
+.blurBGSilver {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    overflow: hidden;
+    background-color: #b2b5c6;
+    background-image: radial-gradient(circle closest-corner at 60% 0,#c6c9d5,hsla(0,0%,100%,0)),radial-gradient(circle closest-corner at 20% 80%,#fff,rgba(248,249,250,0)),radial-gradient(circle closest-corner at 100% 50%,#fff,hsla(231,0%,86%,0)),linear-gradient(135deg,rgba(178,181,198,0),#fff 41%,hsla(0,0%,100%,0));
+    text-align: right;
+}
+
+.showError__true {
+    position: fixed;
+    top: 0;
+    width: 95vw;
+    padding: 10px;
+    z-index: 10000000000;
+}
+
 @media screen and (max-width: 991px) {
     .breadcrumbRight {
         padding-top: 1.1em;

@@ -38,8 +38,16 @@ p {
   body {
     font-size: 12px;
   }
+  p {
+    font-size: 1.1em;
+  }
 }
 
+@media screen and (max-width: 479px) {
+  p {
+    font-size: 1.1em;
+  }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

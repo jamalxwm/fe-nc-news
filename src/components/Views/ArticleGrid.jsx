@@ -4,6 +4,7 @@ import styles from '../../styles/ArticleGrid.module.css';
 import { useParams, Link } from 'react-router-dom';
 import { fetchArticles, fetchUsers } from '../../utils/api';
 import dayjs from 'dayjs';
+import Nav from '../Nav';
 
 export default function ArticleGrid() {
   const [articles, setArticles] = useState([]);
@@ -29,6 +30,9 @@ export default function ArticleGrid() {
   };
 
   return (
+    <div>
+    <Nav />
+    
     <div className={styles.container}>
       <h1 className={styles.heading__medium}>Latest Articles</h1>
       <div className={[styles.grid, styles.gridBorder]}>
@@ -52,5 +56,7 @@ export default function ArticleGrid() {
         </ul>
       </div>
     </div>
+    </div>
+    
   );
 }

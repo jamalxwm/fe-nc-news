@@ -12,3 +12,11 @@
 .container {
     margin-bottom: 16px;
 }
+
+.showError__true {
+    position: fixed;
+    top: 0;
+    width: 95vw;
+    padding: 10px;
+    z-index: 10000000000;
+}
