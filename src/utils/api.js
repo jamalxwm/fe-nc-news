@@ -1,5 +1,3 @@
-import { RestartAlt } from '@mui/icons-material';
-
 const axios = require('axios');
 
 export const fetchArticles = (sort_by, order, slug) => {
@@ -46,4 +44,9 @@ export const fetchUsers = () => {
 export const fetchUser = (username) => {
   const query = `https://be-nc-news-jwm.herokuapp.com/api/users/${username}`;
   return axios.get(query).then((res) => res.data.user);
+};
+
+export const deleteCommentByID = (id) => {
+  const query = `https://be-nc-news-jwm.herokuapp.com/api/comments/${id}`;
+  return axios.delete(query).then((res) => res.status);
 };
