@@ -28,7 +28,7 @@ export default function ArticleList() {
 
   return (
     <>
-      <NavBar setOrderBy={setOrderBy} setSortBy={setSortBy} />
+      {/* <NavBar setOrderBy={setOrderBy} setSortBy={setSortBy} /> */}
       <CssBaseline />
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
