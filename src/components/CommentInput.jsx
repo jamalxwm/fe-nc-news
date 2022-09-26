@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
 import { postCommentByArticle } from '../utils/api';
-import { useParams } from 'react-router-dom';
+import { UserContext } from '../contexts/user';
+import styles from '../styles/CommentList.module.css'
 
 export default function CommentInput({ article_id, setComments, comments }) {
   const [input, setInput] = useState('');
   const [hasChanged, setHasChanged] = useState(false);
-  const username = 'grumpy19';
+  const { loggedInUser } = useContext(UserContext);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -22,13 +21,13 @@ export default function CommentInput({ article_id, setComments, comments }) {
     event.preventDefault();
     const optimisticComment = {
       body: input,
-      author: username,
+      author: loggedInUser,
       votes: 0,
     };
     setComments([optimisticComment, ...comments]);
     setInput('');
 
-    postCommentByArticle(article_id, username, input).then(() =>
+    postCommentByArticle(article_id, loggedInUser, input).then(() =>
       setHasChanged(false)
     );
   };
@@ -36,6 +35,7 @@ export default function CommentInput({ article_id, setComments, comments }) {
   const enabled = hasChanged === true && input.length > 3;
 
   return (
+    <div className={styles.container}>
     <Box
       component="form"
       onSubmit={handleSubmit}
@@ -62,8 +62,9 @@ export default function CommentInput({ article_id, setComments, comments }) {
         endIcon={<SendIcon />}
         disabled={!enabled}
       >
-        Send
+        Post
       </Button>
     </Box>
+    </div>
   );
 }

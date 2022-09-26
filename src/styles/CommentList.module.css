@@ -1,0 +1,14 @@
+.buttonWrapper {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 8vw;
+}
+
+.buttonHide {
+    display: none;
+}
+
+.container {
+    margin-bottom: 16px;
+}
