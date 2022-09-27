@@ -12,7 +12,6 @@ function App() {
 
   return (
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-      <div className="App">
         <Routes>
           <Route path="/" element={<ArticleGrid />} />
           <Route path="/topic/:slug" element={<ArticleGrid />} />
@@ -23,7 +22,6 @@ function App() {
           />
           <Route path="/*" element={<Page404 />} />
         </Routes>
-      </div>
     </UserContext.Provider>
   );
 }
