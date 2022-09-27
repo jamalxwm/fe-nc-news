@@ -83,6 +83,7 @@ export default function CommentInput({ article_id, setComments, comments }) {
             label="Leave a comment"
             multiline
             maxRows={4}
+            fullWidth="true"
             value={input}
             onChange={handleChange}
             variant="standard"
