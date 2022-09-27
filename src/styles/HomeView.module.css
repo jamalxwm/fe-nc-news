@@ -35,6 +35,7 @@ h1 {
     margin-bottom: 0;
     margin-left: -1px;
 }
+
 .heading__medium {
     text-align: left;
     margin-top: 0.2em;
@@ -79,7 +80,7 @@ ul {
     padding-inline-start: 0px;
 }
 
-@media screen and (min-width 991px) {
+@media screen and (min-width: 991px) {
     .tabsMenu {
         position: absolute;
         top: -5.5em;
