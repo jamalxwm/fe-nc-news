@@ -19,6 +19,7 @@ export default function HomeHero() {
       })
       .then((user) => {
         setAuthorDetails(user);
+       
       });
   }, []);
 
@@ -68,18 +69,12 @@ export default function HomeHero() {
                         <div
                           className={`${styles.articleInfo} ${styles.marginRight2em}`}
                         >
-                          <p
-                            
-                            className={`${styles.paragraph} ${styles.small}`}
-                          >
+                          <p className={`${styles.paragraph} ${styles.small}`}>
                             {dayjs(article.created_at).format('DD MMM YYYY')}
                           </p>
                         </div>
                         <div className={styles.articleInfo}>
-                          <p
-                            
-                            className={`${styles.paragraph} ${styles.small}`}
-                          >
+                          <p className={`${styles.paragraph} ${styles.small}`}>
                             {`${article.votes} votes`}
                           </p>
                         </div>

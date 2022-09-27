@@ -4,11 +4,12 @@
     top: 0;
     right: 0;
     bottom: auto;
-    z-index: 990;
+    z-index: 5000;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    height: 9em;
 }
 
 .w-nav {
@@ -25,7 +26,7 @@
     margin-left: auto;
     padding-right: 8em;
     padding-left: 8em;
-    background-color: blueviolet;
+
 }
 
 .nav__inner {
@@ -83,6 +84,10 @@
     object-fit: contain;
 }
 
+.navLogo {
+    width: 9em;
+}
+
 @media only screen and (max-width: 991px) {
     .navbar {
         height: 7em;
@@ -92,12 +97,10 @@
         padding-left: 6em;
     }
     .nav__inner {
-        padding-left: 3em;
+       
+        font-size: 13px;
     }
-    .navBurger {
-        left: 1em;
-        top: 1.5em;
-    }
+    
 }
 
 @media only screen and (max-width: 767px) {
@@ -110,16 +113,15 @@
     }
     .nav__inner {
         width: auto;
-        padding-left: 5em;
+        
         -webkit-box-pack: start;
         -webkit-justify-content: flex-start;
         -webkit-align-self: stretch;
         justify-content: flex-start;
         align-self: stretch;
+        font-size: 14px;
     }
-    .navBurger {
-        top: 0.5em;
-    }
+    
 }
 
 @media only screen and (max-width: 479px) {
@@ -131,9 +133,7 @@
         padding-right: 8vw;
         padding-left: 8vw;
     }
-    .nav__inner {
-        padding-left: 3.6em;
-    }
+    
     .navBurger {
         top: 0.5em;
         width: 3em;

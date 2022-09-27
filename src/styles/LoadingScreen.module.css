@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #070d22;
+}
+
+.paragraph {
+    font-Family: 'Manrope';
+    color: #FFF;
+    opacity: .74;
+    font-size: 6vw;
+    font-weight: 700;
+    letter-spacing: .8em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 50;
+}
+
+.blurBG {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #070d22;
+    background-image: radial-gradient(circle closest-corner at 70% 20%,#591d69,rgba(25,28,31,0)),radial-gradient(circle farthest-side at 70% 100%,rgba(12,39,141,.8),rgba(25,28,31,0) 68%),linear-gradient(135deg,#09102a,#050b20);
+}
+
+@media screen and (min-width: 991px) {
+    .paragraph {
+        font-size: 4vw;
+    }
+}
+@media screen and (max-width: 767px) {
+    .paragraph {
+        font-size: 6vw;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .blurBG {
+        background-image: radial-gradient(circle closest-corner at 100% 50%,#591d69,rgba(25,28,31,0)),radial-gradient(circle farthest-side at 70% 100%,rgba(12,39,141,.8),rgba(25,28,31,0) 68%),linear-gradient(135deg,#09102a,#050b20);
+    }
+}

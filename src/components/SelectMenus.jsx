@@ -8,7 +8,7 @@ export default function ({
   handleSortChange,
 }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
       <FormControl
         variant="standard"
         sx={{
@@ -18,7 +18,7 @@ export default function ({
           display: 'flex',
           flex: 1,
           margin: 0,
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         <InputLabel id="demo-simple-select-standard-label">Order</InputLabel>
@@ -28,7 +28,14 @@ export default function ({
           value={orderBy}
           onChange={handleOrderChange}
           label="Order"
-          sx={{fontFamily: 'Manrope'}}
+          sx={{
+            fontFamily: 'Manrope',
+            color: '#6c7176',
+            fontWeight: '500',
+            fontSize: '1.2em',
+            textTransform: 'uppercase',
+            letterSpacing: '.1em',
+          }}
         >
           <MenuItem value={'DESC'}>Descending</MenuItem>
           <MenuItem value={'ASC'}>Ascending</MenuItem>
@@ -43,7 +50,8 @@ export default function ({
           display: 'flex',
           flex: 1,
           margin: 0,
-          textAlign: 'center'
+          textAlign: 'center',
+          color: '#adb5bd',
         }}
       >
         <InputLabel id="demo-simple-select-standard-label">Sort</InputLabel>
@@ -53,7 +61,14 @@ export default function ({
           value={sortBy}
           onChange={handleSortChange}
           label="Sort"
-          sx={{fontFamily: 'Manrope'}}
+          sx={{
+            fontFamily: 'Manrope',
+            color: '#6c7176',
+            fontWeight: '500',
+            fontSize: '1.2em',
+            textTransform: 'uppercase',
+            letterSpacing: '.1em',
+          }}
         >
           <MenuItem value={'created_at'}>Date</MenuItem>
           <MenuItem value={'title'}>Title</MenuItem>

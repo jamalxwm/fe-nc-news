@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+
 img {
     border: 0;
     max-width: 100%;
@@ -33,7 +35,7 @@ img {
 
 .headerImagesColumn {
     position: relative;
-    right: -3em;
+    right: 10em;
     width: 23em;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -229,6 +231,8 @@ img {
     margin-left: auto;
     padding-right: 8em;
     padding-left: 8em;
+    font-family: "Manrope";
+    font-weight: 400;
 }
 
 .paddingInner {

@@ -1,9 +1,8 @@
 import './App.css';
-import ArticleList from './components/ArticleList';
 import { Routes, Route } from 'react-router-dom';
 import ArticleView from './components/Views/ArticleView';
 import CommentList from './components/CommentList';
-import ArticleGrid from './components/Views/ArticleGrid';
+import ArticleGrid from './components/Views/HomeView';
 import { useState } from 'react';
 import { UserContext } from './contexts/user';
 import Page404 from './components/Views/Page404';

@@ -7,11 +7,12 @@ import CommentList from '../CommentList';
 import styles from '../../styles/ArticleView.module.css';
 import dayjs from 'dayjs';
 import { UserContext } from '../../contexts/user';
-import Nav from '../Nav';
+import NavBar from '../NavBar';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import { Collapse } from '@mui/material';
+import LoadingScreen from './LoadingScreen';
 
 export default function ArticleView() {
   const { article_id } = useParams();
@@ -54,20 +55,15 @@ export default function ArticleView() {
     patchVotes(article.article_id, incOrDec).catch(() => {
       setVotes((currVotes) => {
         return currVotes - incOrDec;
-      })
+      });
       setShowError(true);
-        setTimeout(() => {
-          setShowError(false);
-        }, 6000);
+      setTimeout(() => {
+        setShowError(false);
+      }, 6000);
     });
   };
 
-  if (isLoading)
-    return (
-      <div>
-        <p>Loading</p>
-      </div>
-    );
+  if (isLoading) return <LoadingScreen />;
 
   return (
     <div>
@@ -90,11 +86,11 @@ export default function ArticleView() {
           </Collapse>
         </Box>
       </div>
-      <Nav />
+      <NavBar />
       <div className={styles.breadcrumbRight}>
         <div className={styles.breadcrumbAbout}>
           <p className={styles.breadcrumbParagraph}>
-            {dayjs(article.created_at).format('DD MMM YYYY')}
+            {dayjs(article.created_at).format('DD MMMM YYYY')}
           </p>
         </div>
       </div>
@@ -112,7 +108,11 @@ export default function ArticleView() {
               <div
                 className={`${styles.flex}  ${styles.alignCenter}  ${styles.flexMargins1em}`}
               >
-                <img src={author.avatar_url} alt={author.name} className={styles.authorImage} />
+                <img
+                  src={author.avatar_url}
+                  alt={author.name}
+                  className={styles.authorImage}
+                />
                 <p>{author.name}</p>
               </div>
               <div
@@ -192,9 +192,11 @@ export default function ArticleView() {
           </div>
           <CommentList articleAuthor={author.username} articleID={article_id} />
         </div>
-        <div className={styles.blurBGSilver}></div>
+        
       </section>
-   
+      <div className={styles.fixedBG}>
+          <div className={styles.blurBGSilver} />
+        </div>
     </div>
   );
 }

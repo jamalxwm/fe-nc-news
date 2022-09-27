@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import GridItem from '../GridItem';
-import styles from '../../styles/ArticleGrid.module.css';
+import styles from '../../styles/HomeView.module.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchArticles, fetchUsers } from '../../utils/api';
 import dayjs from 'dayjs';
-import Nav from '../Nav';
+import NavBar from '../NavBar';
 import SelectMenus from '../SelectMenus';
 import { FormControl, Select, MenuItem } from '@mui/material';
 import HomeHero from '../HomeHero';
+import LoadingScreen from './LoadingScreen';
 
 export default function ArticleGrid() {
+  const [isLoading, setIsLoading] = useState(true);
   const { slug } = useParams();
   const [articles, setArticles] = useState([]);
   const [users, setUsers] = useState([]);
@@ -27,6 +29,7 @@ export default function ArticleGrid() {
   useEffect(() => {
     fetchUsers().then((userItems) => {
       setUsers(userItems);
+      setIsLoading(false);
     });
   }, []);
 
@@ -50,12 +53,14 @@ export default function ArticleGrid() {
     return users.find((user) => user.username === author);
   };
 
+  if (isLoading) return <LoadingScreen />;
+
   return (
     <div>
-      <Nav />
+      <NavBar />
       <HomeHero />
-      <div className={styles.container}>
-        <div className={styles.paddingInner}>
+      <div className={styles.paddingInner}>
+        <div className={styles.container}>
           <FormControl
             variant="standard"
             sx={{ m: 1, minWidth: 120, margin: 0 }}
@@ -82,31 +87,27 @@ export default function ArticleGrid() {
               <MenuItem value={'coding'}>Coding articles</MenuItem>
             </Select>
           </FormControl>
-          <div className={`${styles.grid}, ${styles.gridBorder}`}>
-            <div className={styles.tabsMenu}>
-              <SelectMenus
-                orderBy={orderBy}
-                sortBy={sortBy}
-                handleOrderChange={handleOrderChange}
-                handleSortChange={handleSortChange}
+          <div className={styles.tabsMenu}>
+            <SelectMenus
+              orderBy={orderBy}
+              sortBy={sortBy}
+              handleOrderChange={handleOrderChange}
+              handleSortChange={handleSortChange}
+            />
+          </div>
+          <div className={styles.grid}>
+            {articles.map((article) => (
+              <GridItem
+                articleID={article.article_id}
+                title={article.title}
+                image={`https://source.unsplash.com/random?${article.topic},${article.article_id}`}
+                slug={article.topic}
+                date={dayjs(article.created_at).format('MMM D, YYYY')}
+                avatarUrl={userInfo(article.author).avatar_url}
+                authorName={userInfo(article.author).name}
+                votes={article.votes}
               />
-            </div>
-            <ul>
-              {articles.map((article) => (
-                <li key={article.article_id}>
-                  <GridItem
-                    articleID={article.article_id}
-                    title={article.title}
-                    image={`https://source.unsplash.com/random?${article.topic},${article.article_id}`}
-                    slug={article.topic}
-                    date={dayjs(article.created_at).format('MMM D, YYYY')}
-                    avatarUrl={userInfo(article.author).avatar_url}
-                    authorName={userInfo(article.author).name}
-                    votes={article.votes}
-                  />
-                </li>
-              ))}
-            </ul>
+            ))}
           </div>
         </div>
       </div>
