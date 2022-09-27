@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import Nav from '../Nav';
 import SelectMenus from '../SelectMenus';
 import { FormControl, Select, MenuItem } from '@mui/material';
+import HomeHero from '../HomeHero';
 
 export default function ArticleGrid() {
   const { slug } = useParams();
@@ -52,57 +53,61 @@ export default function ArticleGrid() {
   return (
     <div>
       <Nav />
+      <HomeHero />
       <div className={styles.container}>
-        <FormControl variant="standard" sx={{ m: 1, minWidth: 120, margin: 0 }}>
-          <Select
-            labelId="demo-simple-select-standard-label"
-            id="demo-simple-select-standard"
-            value={topic}
-            onChange={handleTopicChange}
-            label="Filter topic"
-            aria-label="filter topic"
-            disableUnderline
-            className={styles.heading__medium}
-            sx={{
-              fontFamily: 'Manrope',
-              fontWeight: 600,
-              letterSpacing: '-.0125em'
-              
-            }}
+        <div className={styles.paddingInner}>
+          <FormControl
+            variant="standard"
+            sx={{ m: 1, minWidth: 120, margin: 0 }}
           >
-            <MenuItem value={'all'}>All articles</MenuItem>
-            <MenuItem value={'cooking'}>Cooking articles</MenuItem>
-            <MenuItem value={'football'}>Football articles</MenuItem>
-            <MenuItem value={'coding'}>Coding articles</MenuItem>
-          </Select>
-        </FormControl>
-        <div className={`${styles.grid}, ${styles.gridBorder}`}>
-          <div className={styles.tabsMenu}>
-            <SelectMenus
-              orderBy={orderBy}
-              sortBy={sortBy}
-              handleOrderChange={handleOrderChange}
-              handleSortChange={handleSortChange}
-            />
-          </div>
-          <ul>
-            {articles.map((article) => (
-              <li key={article.article_id}>
-                <div>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={topic}
+              onChange={handleTopicChange}
+              label="Filter topic"
+              aria-label="filter topic"
+              disableUnderline
+              className={styles.heading__medium}
+              sx={{
+                fontFamily: 'Manrope',
+                fontWeight: 600,
+                letterSpacing: '-.0125em',
+                fontSize: '1.8rem',
+              }}
+            >
+              <MenuItem value={'all'}>All articles</MenuItem>
+              <MenuItem value={'cooking'}>Cooking articles</MenuItem>
+              <MenuItem value={'football'}>Football articles</MenuItem>
+              <MenuItem value={'coding'}>Coding articles</MenuItem>
+            </Select>
+          </FormControl>
+          <div className={`${styles.grid}, ${styles.gridBorder}`}>
+            <div className={styles.tabsMenu}>
+              <SelectMenus
+                orderBy={orderBy}
+                sortBy={sortBy}
+                handleOrderChange={handleOrderChange}
+                handleSortChange={handleSortChange}
+              />
+            </div>
+            <ul>
+              {articles.map((article) => (
+                <li key={article.article_id}>
                   <GridItem
                     articleID={article.article_id}
                     title={article.title}
-                    image={`https://source.unsplash.com/random?${article.topic}`}
+                    image={`https://source.unsplash.com/random?${article.topic},${article.article_id}`}
                     slug={article.topic}
                     date={dayjs(article.created_at).format('MMM D, YYYY')}
                     avatarUrl={userInfo(article.author).avatar_url}
                     authorName={userInfo(article.author).name}
                     votes={article.votes}
                   />
-                </div>
-              </li>
-            ))}
-          </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

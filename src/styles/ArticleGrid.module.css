@@ -64,6 +64,13 @@ h1 {
     align-items: center;
 }
 
+.paddingInner {
+    position: relative;
+    z-index: 10;
+    padding-top: 8em;
+    padding-bottom: 8em;
+}
+
 ul {
     display: block;
     list-style-type: disc;
@@ -97,11 +104,15 @@ ul {
         padding-right: 3em;
         padding-left: 3em;
     }
+    .paddingInner {
+        padding-top: 6em;
+        padding-bottom: 6em;
+    }
 }
 
 @media screen and (max-width: 479px) {
     .heading__medium {
-        font-size: 1.8em;
+        font-size: 1.8rem;
         margin-bottom: 1em;
     }
     .container {
