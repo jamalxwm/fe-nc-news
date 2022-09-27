@@ -3,8 +3,6 @@ import ArticleList from './components/ArticleList';
 import { Routes, Route } from 'react-router-dom';
 import ArticleView from './components/Views/ArticleView';
 import CommentList from './components/CommentList';
-import Nav from './components/Nav';
-import './index.css';
 import ArticleGrid from './components/Views/ArticleGrid';
 import { useState } from 'react';
 import { UserContext } from './contexts/user';
@@ -17,9 +15,8 @@ function App() {
     <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
       <div className="App">
         <Routes>
-          
           <Route path="/" element={<ArticleGrid />} />
-          <Route path="/topic/:slug" element={<ArticleList />} />
+          <Route path="/topic/:slug" element={<ArticleGrid />} />
           <Route path="/articles/:article_id" element={<ArticleView />} />
           <Route
             path="/articles/:article_id/comments"
