@@ -189,8 +189,9 @@ export default function ArticleView() {
                 <p>{article.comment_count}</p>
               </div>
             </div>
+            <CommentList articleAuthor={author.username} articleID={article_id} />
           </div>
-          <CommentList articleAuthor={author.username} articleID={article_id} />
+          
         </div>
         
       </section>
