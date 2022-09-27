@@ -8,7 +8,7 @@ export default function NavBar() {
       <div className={styles.container}>
         <div className={styles.nav__inner}>
           <Link to="/">
-            <img src={Logo} className={styles.navLogo} />
+            <img src={Logo} className={styles.navLogo} alt="papers logo" />
           </Link>
         </div>
       </div>

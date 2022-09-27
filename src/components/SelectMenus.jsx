@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputLabel, FormControl, Select, MenuItem } from '@mui/material';
 
-export default function ({
+export default function SelectMenus ({
   orderBy,
   sortBy,
   handleOrderChange,
