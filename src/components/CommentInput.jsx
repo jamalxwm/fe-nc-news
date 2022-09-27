@@ -69,6 +69,10 @@ export default function CommentInput({ article_id, setComments, comments }) {
         onSubmit={handleSubmit}
         sx={{
           '& .MuiTextField-root': { m: 1, width: '40ch' },
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
         noValidate
         autoComplete="off"
@@ -82,6 +86,7 @@ export default function CommentInput({ article_id, setComments, comments }) {
             value={input}
             onChange={handleChange}
             variant="standard"
+            sx={{fontFamily: 'Manrope'}}
           />
         </div>
         <Button
@@ -89,7 +94,7 @@ export default function CommentInput({ article_id, setComments, comments }) {
           type="submit"
           endIcon={<SendIcon />}
           disabled={!enabled}
-          sx={{ backgroundColor: '#0c33c5'}}
+          sx={{ backgroundColor: '#0c33c5', fontFamily: 'Manrope' }}
         >
           Post
         </Button>
