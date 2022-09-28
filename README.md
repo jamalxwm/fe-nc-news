@@ -1,10 +1,59 @@
-# Getting Started with Create React App
+# Papers (Frontend)
+![Papers logo](./src/assets/images/PapersLogoLight.png "Papers logo")
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Papers** is a reddit-style web app allowing users to read, comment, and like articles contributed by other users as well as posting article themselves. 
+
+Hosted at:
+https://papersjxwm.netlify.app 🔗
+
+This repo handles Paper's backend codebase. You can see check out the backend [repo here](https://github.com/jamalxwm/be-nc-news).
+
+## Project Summary 🗒
+
+This project creates the web interface (bootstrapped with Create React App) for users to create, read, update, and delete (CRUD) the entries in Paper's database. 
+
+The web app allows users to:
+- View articles
+- Sort and order articles
+- Filter articles by topic
+- Comment and like articles
+- Read comments posted by others
+- Delete comments they've posted
+- Delete comments on an article they've posted
+
+The project features best practices for:
+- State management 
+- Optimistic rendering 
+- Browser routing
+- Error handling
+- Responsive design 
+
+## Tech Stack 💾
+
+- React 
+- Axios 
+
+## Getting Started
+
+To inspect this project (or build your own!) locally start by forking and cloning this repository.
+
+### Prerequisites
+
+At a minimum your machine will need Node.js installed.
+
+## Installation
+
+You can install all the required dependencies with the following command:
+
+```
+npm install
+```
+
+## Setup
+
+You are free to use the endpoints specified in `api.js` or add new ones if you have set up your own server 
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
@@ -27,44 +76,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
