@@ -61,43 +61,46 @@ export default function ArticleGrid() {
       <HomeHero />
       <div className={styles.paddingInner}>
         <div className={styles.container}>
-          <FormControl
-            variant="standard"
-            sx={{ m: 1, minWidth: 120, margin: 0 }}
-          >
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              value={topic}
-              onChange={handleTopicChange}
-              label="Filter topic"
-              aria-label="filter topic"
-              disableUnderline
-              className={styles.heading__medium}
-              sx={{
-                fontFamily: 'Manrope',
-                fontWeight: 600,
-                letterSpacing: '-.0125em',
-                fontSize: '1.8rem',
-              }}
+          <div className={styles.selectWrapper}>
+            <FormControl
+              variant="standard"
+              sx={{ m: 1, minWidth: 120, margin: 0, display: 'block'}}
             >
-              <MenuItem value={'all'}>All articles</MenuItem>
-              <MenuItem value={'cooking'}>Cooking articles</MenuItem>
-              <MenuItem value={'football'}>Football articles</MenuItem>
-              <MenuItem value={'coding'}>Coding articles</MenuItem>
-            </Select>
-          </FormControl>
-          <div className={styles.tabsMenu}>
-            <SelectMenus
-              orderBy={orderBy}
-              sortBy={sortBy}
-              handleOrderChange={handleOrderChange}
-              handleSortChange={handleSortChange}
-            />
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={topic}
+                onChange={handleTopicChange}
+                label="Filter topic"
+                aria-label="filter topic"
+                disableUnderline
+                className={styles.heading__medium}
+                sx={{
+                  fontFamily: 'Manrope',
+                  fontWeight: 600,
+                  letterSpacing: '-.0125em',
+                  fontSize: '1.8rem',
+                }}
+              >
+                <MenuItem value={'all'}>All articles</MenuItem>
+                <MenuItem value={'cooking'}>Cooking articles</MenuItem>
+                <MenuItem value={'football'}>Football articles</MenuItem>
+                <MenuItem value={'coding'}>Coding articles</MenuItem>
+              </Select>
+            </FormControl>
+            <div className={styles.tabsMenu}>
+              <SelectMenus
+                orderBy={orderBy}
+                sortBy={sortBy}
+                handleOrderChange={handleOrderChange}
+                handleSortChange={handleSortChange}
+              />
+            </div>
           </div>
           <div className={styles.grid}>
             {articles.map((article) => (
               <GridItem
+                key={article.article_id}
                 articleID={article.article_id}
                 title={article.title}
                 image={`https://source.unsplash.com/random?${article.topic},${article.article_id}`}

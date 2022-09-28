@@ -63,6 +63,11 @@ h1 {
     align-items: center;
 }
 
+.selectWrapper {
+    display: flex;
+    position: relative;
+}
+
 .paddingInner {
     position: relative;
     z-index: 10;
@@ -83,12 +88,13 @@ ul {
 @media screen and (min-width: 991px) {
     .tabsMenu {
         position: absolute;
-        top: -5.5em;
         right: 0;
         justify-content: flex-end;
         align-items: center;
+        width: 33%;
 
     }
+   
 }
 
 @media screen and (max-width: 991px) {
@@ -105,8 +111,12 @@ ul {
     }
     .tabsMenu {
         position: relative;
-        top: 0;
+        
     } 
+    .selectWrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 767px) {
