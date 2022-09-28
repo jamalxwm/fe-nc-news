@@ -63,7 +63,7 @@ export default function HomeHero() {
                           className={`${styles.topicColor} ${styles.marginRight2em}`}
                         >
                           <p className={`${styles.paragraph} ${styles.small}`}>
-                            {article.topic}
+                            Cooking
                           </p>
                         </div>
                         <div
