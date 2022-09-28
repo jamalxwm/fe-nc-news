@@ -21,7 +21,7 @@ function App() {
             path="/articles/:article_id/comments"
             element={<CommentList />}
           />
-          <Route path="/*" element={<Page404 />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
