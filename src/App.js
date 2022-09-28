@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import ArticleView from './components/Views/ArticleView';
 import CommentList from './components/CommentList';
 import ArticleGrid from './components/Views/HomeView';
@@ -11,7 +11,8 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState('happyamy2016');
 
   return (
-    <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+    <BrowserRouter>
+      <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <Routes>
           <Route path="/" element={<ArticleGrid />} />
           <Route path="/topic/:slug" element={<ArticleGrid />} />
@@ -22,7 +23,8 @@ function App() {
           />
           <Route path="/*" element={<Page404 />} />
         </Routes>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </BrowserRouter>
   );
 }
 
